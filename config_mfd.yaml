@@ -1,0 +1,43 @@
+###model parameters
+model_config:
+  atom_input_features: 92
+  node_features: 128
+  edge_features: 128
+  angle_lattice: False
+  triplet_input_features: 40
+  node_layer_head: 8 #4
+  conv_layers: 5
+  fc_features: 256 #128
+  embedding_layer: 2
+
+###training
+logdir: "./logs/multi_fidelity/"
+
+###training dataset
+data_dir: './SDL/data/'
+datasets:
+#  - ['c2db_emass', 'r', 6, 1]
+  - ['c2db_gw', 'r', 4, 1]
+  - ['c2db_hse', 'r', 4, 1]
+  - ['c2db_pbe', 'r', 4, 1]
+  - ['mp_gllb_sc', 'r', 1, 1]
+  - ['mp_hse', 'r', 1, 1]
+  - ['mp_pbe', 'r', 1, 1]
+  - ['mp_scan', 'r', 1, 1]
+  - ['matpedia_optb88', 'r', 3, 1]
+  - ['jarvis_optb88', 'r', 1, 1]
+#  - ['mp_ehull', 'r', 1, 1]
+#  - ['c2db_stability', 'c', 2, 1]
+batch_size: 12
+early_stopping_task: 'c2db_hse'
+
+###training parameter
+learning_rate: 1e-4
+weight_decay: 0.01
+decay: 0.999
+num_epochs: 500
+steps_per_epoch: 600
+embedding_decay: 0.01
+
+###global
+seed: 0

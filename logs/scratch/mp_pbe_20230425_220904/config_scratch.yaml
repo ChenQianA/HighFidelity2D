@@ -1,0 +1,37 @@
+###model parameters
+model_config:
+  atom_input_features: 92
+  node_features: 128
+  edge_features: 128
+  angle_lattice: False
+  triplet_input_features: 40
+  node_layer_head: 4
+  conv_layers: 5
+  fc_features: 128
+
+###training
+logdir: "./logs/scratch/"
+
+###training dataset
+data_dir: './SDL/data/'
+dataset: ['mp_pbe', 'r', 1]
+#  - ['c2db_emass', 'r', 6]
+#  - ['c2db_gw', 'r', 4]
+#  - ['c2db_hse', 'r', 4]
+#  - ['c2db_pbe', 'r', 4]
+#  - ['mp_gllb_sc', 'r', 1]
+#  - ['mp_hse', 'r', 1]
+#  - ['mp_pbe', 'r', 1]
+#  - ['mp_scan', 'r', 1]
+#  - ['c2db_stability', 'c', 2]
+batch_size: 64
+
+###training parameter
+learning_rate: 1e-3
+weight_decay: 0.01
+decay: 0.999
+num_epochs: 500
+#steps_per_epoch: 100
+
+###global
+seed: 0
